@@ -97,17 +97,17 @@
       maintable.empty();
       var serialnum = 1;
       for (var i = 0; i < things.length; i++) {
-        //if (things[i][2].substring(1,10) == "2022-12-10" ) {
+        if (things[i][2].substring(0,10) == "09/12/2022" ) {
           maintable.append('<tr><td>'+ serialnum + '</td><td>' + things[i][0] + '</td><td>' +
             things[i][1] + '</td><td>' +
-            things[i][2].substring(1,10) + '</td><td>' +
+            things[i][2].substring(11,16) + '</td><td>' +
             things[i][3] + '</td><td>' +
             things[i][4] + '</td><td>' +
             things[i][5] + '</td><td>' +
             things[i][6] + '</td><td>' +
             things[i][7] + '</td></tr>');
           serialnum = serialnum+1;
-       // }
+        }
                
       }
       
