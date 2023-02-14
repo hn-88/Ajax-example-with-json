@@ -67,7 +67,8 @@
         var resourceContent = JSON.parse(data); // can be a global variable too...
         // process the content...
         //console.log(resourceContent.length);
-        showThings(resourceContent);
+        //showThings(resourceContent);
+        showFilteredRows(resourceContent);
     });
     });
 
@@ -89,6 +90,29 @@
       }
       
     }
+      
+    function showFilteredRows(things) {
+      // select is for B, C, D, E, G, H, I, M
+      var maintable = $('#maintable');
+      maintable.empty();
+      var serialnum = 1;
+      for (var i = 0; i < things.length; i++) {
+        if (things[i][2].substring(1,10) == "2022-12-12" ) {
+          maintable.append('<tr><td>'+ serialnum + '</td><td>' + things[i][0] + '</td><td>' +
+            things[i][1] + '</td><td>' +
+            things[i][2].substring(11,16) + '</td><td>' +
+            things[i][3] + '</td><td>' +
+            things[i][4] + '</td><td>' +
+            things[i][5] + '</td><td>' +
+            things[i][6] + '</td><td>' +
+            things[i][7] + '</td></tr>');
+          serialnum = serialnum+1;
+        }
+               
+      }
+      
+    }
+
     </script>
     
     <script>
