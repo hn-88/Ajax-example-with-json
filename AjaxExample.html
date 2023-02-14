@@ -66,12 +66,8 @@
       $.get( "js/array.txt", function( data ) {
         var resourceContent = JSON.parse(data); // can be a global variable too...
         // process the content...
-        console.log(resourceContent.length);
-        console.log(resourceContent[3][3]);
-        console.log(resourceContent[3][4]);
-        console.log(resourceContent[3][5]);
-        console.log(resourceContent[3][6]);
-        console.log(resourceContent[3][7]);
+        //console.log(resourceContent.length);
+        showThings(resourceContent);
     });
     });
 
