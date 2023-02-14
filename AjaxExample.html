@@ -59,9 +59,16 @@
     <script>
     // The code in this function runs when the page is loaded.
     $(function() {
+      //var resourceContent;
       move();
       //google.script.run.withSuccessHandler(showThings)
       //    .getLotsOfThings();
+      $.get( "js/array.txt", function( data ) {
+        var resourceContent = data; // can be a global variable too...
+        // process the content...
+        console.log(resourceContent.length);
+        console.log(resourceContent[3][3];
+    });
     });
 
     function showThings(things) {
