@@ -40,6 +40,7 @@
     </style>
   </head>
   <body>
+     <button onclick="showDateFiltRows(resourceContent)">Click me</button> 
     <!-- https://developers.google.com/apps-script/guides/html/best-practices -->
     
     <!-- https://stackoverflow.com/questions/17724017/using-jquery-to-build-table-rows-from-ajax-responsejson
@@ -57,14 +58,15 @@
     </script>
 
     <script>
+      var resourceContent; // makes this a global variable
     // The code in this function runs when the page is loaded.
     $(function() {
-      //var resourceContent;
+       
       move();
       //google.script.run.withSuccessHandler(showThings)
       //    .getLotsOfThings();
       $.get( "js/array2.txt", function( data ) {
-        var resourceContent = JSON.parse(data); // can be a global variable too...
+        resourceContent = JSON.parse(data); // can be a global variable too...
         // process the content...
         //console.log(resourceContent.length);
         //showThings(resourceContent);
@@ -112,6 +114,31 @@
       }
       
     }
+      
+    function showDateFiltRows(things) {
+    // select is for B, C, D, E, G, H, I, M
+    var maintable = $('#maintable');
+    maintable.empty();
+    var serialnum = 1;
+    var previousdescr = ""; 
+    for (var i = 0; i < things.length; i++) {
+      if ( (Date( things[i][2] ) > Date("07/12/2022 23:59:59" ) && (Date( things[i][2] ) < Date("08/12/2022 23:59:59" ) {
+                                                                    
+        maintable.append('<tr><td>'+ serialnum + '</td><td>' + things[i][0] + '</td><td>' +
+          things[i][1] + '</td><td>' +
+          things[i][2] + '</td><td>' +
+          things[i][3] + '</td><td>' +
+          things[i][4] + '</td><td>' +
+          things[i][5] + '</td><td>' +
+          things[i][6] + '</td><td>' +
+          things[i][7] + '</td></tr>');
+        serialnum = serialnum+1;
+        previousdescr = things[i][4];
+      }
+
+    }
+
+  }
 
     </script>
     
